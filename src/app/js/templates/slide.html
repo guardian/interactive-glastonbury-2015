@@ -1,12 +1,20 @@
-<div class="swiper-slide swiper-slide-{{slide}} swiper-slide-{{slide}}-pending"  
-	 {{#getPhotoData}}
-		data-img-src='{{src}}' data-img-sizes='{{sizes}}'
-	{{/getPhotoData}}
-	style='{{img_style}}'
-	>
-
-	{{slideData}}
-	{{caption}}
-
-
+<div 
+	class="swiper-slide swiper-slide-{{slide}} {{#src}}swiper-slide-pending{{/src}}" 
+	{{#backgroundcolor}}style="background-color:{{backgroundcolor}}"{{/backgroundcolor}} 
+	{{#src}}{{#getPhotoData}}data-img-src='{{src}}' data-img-sizes='{{sizes}}'{{/getPhotoData}}{{/src}}
+>
+	<div class="slide-container slide-{{slide}}">
+		{{#isQuote}}
+			<div class="quote-container">
+				<quote>{{quote}}</quote>
+				<p class="quote-credit">{{quotecredit}}</p>
+			</div>
+		{{/isQuote}}
+		{{#isPhoto}}
+			{{#isFirst}}
+				<h2 class="story-title">{{storyTitle}}</h2>
+			{{/isFirst}}
+			<p class="picture-credit" {{#textshadow}}style="text-shadow:0 0 4px rgba(0,0,0,{{textshadow}})"{{/textshadow}}>{{caption}}</p>
+		{{/isPhoto}}
+	</div>
 </div>
