@@ -33,6 +33,7 @@
     "ractive": "^0.7.3"
   },
   "dependencies": {
+    "mustache": "^2.1.2",
     "swiper": "^3.0.8"
   }
 }
