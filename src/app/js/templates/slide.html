@@ -1,1 +1,12 @@
-<div class="swiper-slide swiper-slide-{{slide}} swiper-slide-{{slide}}-pending"  data-img-src='{{src}}' data-img-sizes='{{sizes}}'>{{caption}}</div>
+<div class="swiper-slide swiper-slide-{{slide}} swiper-slide-{{slide}}-pending"  
+	 {{#getPhotoData}}
+		data-img-src='{{src}}' data-img-sizes='{{sizes}}'
+	{{/getPhotoData}}
+
+	>
+
+	{{slideData}}
+	{{caption}}
+
+
+</div>
