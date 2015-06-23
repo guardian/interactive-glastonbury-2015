@@ -1,5 +1,5 @@
 {
 	"bucket": "gdn-cdn",
-	"path":   "2015/07/glastonbury-photos",
-	"domain": "https://visuals.guim.co.uk/"
+	"path":   "2015/07/test-glastonbury-photos/",
+	"domain": "http://interactive.guim.co.uk/"
 }
