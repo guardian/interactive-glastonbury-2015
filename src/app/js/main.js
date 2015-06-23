@@ -6,6 +6,7 @@ var app;
 var el;
 var storyData;
 var windowSize;
+var slides;
 /**
  * Update app using fetched JSON data
  * @param {object:json} data - JSON spreedsheet data.
@@ -18,12 +19,16 @@ function render(data){
 
 function updateView(data) {
 	var storyData = data.stories.map(function(story){
-		story.slides = story.slides.map(function(slide){
+		story.slides = story.slides.map(function(slide,i){
 			slide.isPhoto = slide.slide === "photo" ? true : false
+			slide.isQuote = slide.slide === "quote" ? true : false
+			slide.isFirst = i === 0 ? true : false
+			slide.storyTitle = story.story
 			return slide
 		})
 		return story
 	})
+	console.log(data.stories)
 	var rendered = Mustache.render(
 		require('./templates/base.html'), 
 		{
@@ -46,18 +51,41 @@ function updateView(data) {
 	initSwipers(hSwipers, 'horizontal');
 	initSwipers(vSwipers, 'vertical');
 
+	slides = el.getElementsByClassName('swiper-slide-pending');
 
-
-	
-
+	lazyload();
 	//window.addEventListener('onresize', measure);
 }
+
+function lazyload(){
+	for( var s = 0; s < slides.length ; s ++){
+		if ( slides[s].className.search('swiper-slide-active') > -1 || slides[s].className.search('swiper-slide-prev') > -1 || slides[s].className.search('swiper-slide-next') > -1  ){
+			addBgImg(slides[s]);
+		}	
+	}
+
+	slides = el.getElementsByClassName('swiper-slide-pending');
+}
+
+function addBgImg(div){
+	// console.log(div)
+
+	div.className.replace('swiper-slide-pending', '');
+
+	var sizes = div.getAttribute('data-img-sizes').split(',');
+	var src = div.getAttribute('data-img-src');
+	var url = src + '/' + sizes[sizes.length -1] + '.jpg';
+	div.style.backgroundImage = "url(" + url + ")";
+
+}
+
+
 
 function initSwipers(elems, direction){
 
 	for(var i = 0; i < elems.length; i++) {
 
-		new Swiper(elems[i], {
+		var gallery = new Swiper(elems[i], {
 	        pagination: elems[i].getElementsByClassName('swiper-pagination-' + direction.charAt(0) )[0] ,
 	        paginationClickable: true,
 	        spaceBetween: 1,
@@ -68,6 +96,11 @@ function initSwipers(elems, direction){
 	        keyboardControl: true,
 	        mousewheelControl: (direction === 'vertical') ? true : false
 	    });
+
+	    gallery.on('slideChangeStart', function () {
+		    lazyload();
+		});
+
 
 	}
 

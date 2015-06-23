@@ -77,16 +77,96 @@ body {
 .swiper-slide {
     text-align: center;
     font-size: 18px;
-    background: #fff;
-
-
-}
-.swiper-container-v {
-    background: #eee;
-    height: 100%;
+    background: #f6f6f6;
+    background-position: center;
+    background-size: cover;
 }
 
-.swiper-container-v  .swiper-slide {
-    background: blue;
-    height:  500px;
+.slide-container{
+    text-align: left;
+    padding:40px 20px 0;
+    font-family:'Guardian Egyptian Web', Georgia;
 }
+
+.slide-quote{
+    max-width:540px;
+    margin:0 auto;
+    quote{
+        font-size:32px;
+        color:#fff;
+        font-weight: 100;
+        line-height:1.2em;
+    }
+    .quote-credit{
+        font-weight:bold;
+        font-size:32px;
+        color:#fff;
+        margin-top:0.2em;
+    }
+}
+
+.slide-photo{
+    .picture-credit{
+        position: absolute;
+        bottom:10px;
+        left:10px;
+        right:10px;
+        line-height: 1.3em;
+        color:#fff;
+        font-size:14px;
+        margin:0;
+        max-width:540px;
+    }
+    .story-title{
+        color: #fff;
+        font-size: 3em;
+        max-width: 530px;
+        line-height: 1em;
+        margin-left: 20px;
+    }
+}
+
+@media(min-width:480px){
+    .slide-quote{
+        quote{
+            font-size:42px;
+        }
+        .quote-credit{
+            font-size:42px;
+        }
+    }
+}
+
+@media(min-width:580px){
+    .slide-quote{
+        padding:0;
+        .quote-container{
+            position:absolute;
+            top:50%;
+            transform:translateY(-50%);
+            quote,.quote-credit{
+                max-width:540px;
+                margin:0 auto;
+                display:block;
+            }
+        }
+        
+
+    }
+}
+
+@media(min-width:940px){
+    .slide-quote{
+        max-width:620px;
+        .quote-container{
+            quote,.quote-credit{
+                max-width:620px;    
+                font-size:54px;
+            }
+        }
+        
+
+    }
+}
+
+

@@ -1,14 +1,22 @@
-<div class="swiper-slide slide-{{slide}}">
 
-	{{#isPhoto}}
-		<div class="slide-container" style="background-image: url({{src}})">
-			<h1>{{caption}}</h1>
-		</div>
-	{{/isPhoto}}
-
-	{{^isPhoto}}
-		<div class="slide-container" style="{{#if background === 'image'}} background-image: url({{src}}); {{/if}} {{^if background === 'image'}} background-color:{{background}} {{/if}}">
-			<h1>{{caption}}</h1>
-		</div>
-	{{/isPhoto}}
+<div 
+	class="swiper-slide swiper-slide-{{slide}} {{#src}}swiper-slide-pending{{/src}}" 
+	{{#backgroundcolor}}style="background-color:{{backgroundcolor}}"{{/backgroundcolor}} 
+	{{#src}}data-img-src='{{src}}' data-img-sizes='{{sizes}}'{{/src}}
+>
+	<div class="slide-container slide-{{slide}}">
+		{{#isQuote}}
+			<div class="quote-container">
+				<quote>{{quote}}</quote>
+				<p class="quote-credit">{{quotecredit}}</p>
+			</div>
+		{{/isQuote}}
+		{{#isPhoto}}
+			{{#isFirst}}
+				<h2 class="story-title">{{storyTitle}}</h2>
+			{{/isFirst}}
+			<p class="picture-credit" {{#textshadow}}style="text-shadow:0 0 4px rgba(0,0,0,{{textshadow}})"{{/textshadow}}>{{caption}}</p>
+		{{/isPhoto}}
+	</div>
 </div>
+
