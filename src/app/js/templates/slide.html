@@ -2,7 +2,7 @@
 <div 
 	class="swiper-slide swiper-slide-{{slide}} {{#src}}swiper-slide-pending{{/src}}" 
 	{{#backgroundcolor}}style="background-color:{{backgroundcolor}}"{{/backgroundcolor}} 
-	{{#src}}data-img-src='{{src}}' data-img-sizes='{{sizes}}'{{/src}}
+	{{#src}}{{#getPhotoData}}data-img-src='{{src}}' data-img-sizes='{{sizes}}'{{/getPhotoData}}{{/src}}
 >
 	<div class="slide-container slide-{{slide}}">
 		{{#isQuote}}

@@ -35,13 +35,23 @@ function updateView(data) {
 			stories: data.stories,
 			windowSize: windowSize,
 			shellLayout: (windowSize.windowWidth <=640) ? 'v' : 'h',
-			storyLayout: (windowSize.windowWidth <=640) ? 'h' : 'v'
+			storyLayout: (windowSize.windowWidth <=640) ? 'h' : 'v',
+			getPhotoData: function(){
+	
+				if(windowSize.windowWidth <=640 && this.alt){
+
+					return this.alt;
+				} else {
+					return this;
+				}							
+			}
 		},
 		{
 			gallery: require('./templates/gallery.html'),
 			slide: require('./templates/slide.html')
 		}
 	);
+
 	el.innerHTML = rendered;
 
 	//init horizontal sqipers
@@ -68,13 +78,28 @@ function lazyload(){
 }
 
 function addBgImg(div){
-	// console.log(div)
 
 	div.className.replace('swiper-slide-pending', '');
 
 	var sizes = div.getAttribute('data-img-sizes').split(',');
+	var w = div.offsetWidth;
+	for(var i = 0; i < sizes.length; i ++){
+		
+		if( Number(sizes[i]) > w ){
+			size = sizes[i];
+			break;
+		}
+
+		if(i == sizes.length-1){
+			size = sizes[i];
+		}
+
+	}
+
+
+
 	var src = div.getAttribute('data-img-src');
-	var url = src + '/' + sizes[sizes.length -1] + '.jpg';
+	var url = src + '/' + size + '.jpg';
 	div.style.backgroundImage = "url(" + url + ")";
 
 }
