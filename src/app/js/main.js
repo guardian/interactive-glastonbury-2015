@@ -17,20 +17,26 @@ function render(data){
 
 
 function updateView(data) {
-
+	var storyData = data.stories.map(function(story){
+		story.slides = story.slides.map(function(slide){
+			slide.isPhoto = slide.slide === "photo" ? true : false
+			return slide
+		})
+		return story
+	})
 	var rendered = Mustache.render(
-						require('./templates/base.html'), 
-						{
-							stories: data.stories,
-							windowSize: windowSize,
-							shellLayout: (windowSize.windowWidth <=640) ? 'v' : 'h',
-							storyLayout: (windowSize.windowWidth <=640) ? 'h' : 'v'
-						},
-						{
-							gallery: require('./templates/gallery.html'),
-							slide: require('./templates/slide.html')
-						}
-					);
+		require('./templates/base.html'), 
+		{
+			stories: data.stories,
+			windowSize: windowSize,
+			shellLayout: (windowSize.windowWidth <=640) ? 'v' : 'h',
+			storyLayout: (windowSize.windowWidth <=640) ? 'h' : 'v'
+		},
+		{
+			gallery: require('./templates/gallery.html'),
+			slide: require('./templates/slide.html')
+		}
+	);
 	el.innerHTML = rendered;
 
 	//init horizontal sqipers

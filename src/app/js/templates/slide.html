@@ -1,1 +1,14 @@
-<div class="swiper-slide">{{caption}}</div>
+<div class="swiper-slide slide-{{slide}}">
+
+	{{#isPhoto}}
+		<div class="slide-container" style="background-image: url({{src}})">
+			<h1>{{caption}}</h1>
+		</div>
+	{{/isPhoto}}
+
+	{{^isPhoto}}
+		<div class="slide-container" style="{{#if background === 'image'}} background-image: url({{src}}); {{/if}} {{^if background === 'image'}} background-color:{{background}} {{/if}}">
+			<h1>{{caption}}</h1>
+		</div>
+	{{/isPhoto}}
+</div>
