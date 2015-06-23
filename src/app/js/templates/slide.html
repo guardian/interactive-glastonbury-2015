@@ -13,7 +13,7 @@
 		{{/isQuote}}
 		{{#isPhoto}}
 			{{#isFirst}}
-				<h2 class="story-title">{{storyTitle}}</h2>
+				<h2 class="story-title push-{{offset}} size-{{size}}" style="color:{{color}}; {{#textshadow}}text-shadow: 0 0 4px rgba(0,0,0,{{textshadow}});{{/textshadow}} {{customstyle}}">{{storyTitle}}</h2>
 			{{/isFirst}}
 			<p class="picture-credit" {{#textshadow}}style="text-shadow:0 0 4px rgba(0,0,0,{{textshadow}})"{{/textshadow}}>{{caption}}</p>
 		{{/isPhoto}}

@@ -120,9 +120,8 @@ body {
     .story-title{
         color: #fff;
         font-size: 3em;
-        max-width: 530px;
+        // max-width: 530px;
         line-height: 1em;
-        margin-left: 20px;
     }
 }
 
@@ -154,8 +153,28 @@ body {
 
     }
 }
+@media(min-width:740px){
+    $i: 4;
+    @while $i > 0 {
+        .push-#{$i*2} {
+            margin-left: 90px * ($i *2);
+        }
+        .push-#{($i*2)-1} {
+            margin-left: 90px * ($i *2);
+        }
 
-@media(min-width:940px){
+        .size-#{$i*2} {
+            width: 90px * ($i *2);
+        }
+        .size-#{($i*2)-1} {
+            width: 90px * ($i *2);
+        }
+
+      $i: $i - 1;
+    }
+}
+
+@media(min-width:980px){
     .slide-quote{
         max-width:620px;
         .quote-container{
@@ -164,9 +183,50 @@ body {
                 font-size:54px;
             }
         }
-        
-
+    }
+    $i: 8;
+    @while $i > 0 {
+        .size-#{$i}{
+            padding: 0 10px;
+            width: 120px * $i;
+        }
+        .push-#{$i} {
+            margin-left: 120px * $i;
+        }
+        $i: $i - 1;
     }
 }
+
+@media(min-width:1140px){
+    $i: 8;
+    @while $i > 0 {
+        .size-#{$i} {
+            padding: 0 10px;
+            width: 130px * $i;
+        }
+        .push-#{$i} {
+            margin-left: 130px * $i;
+        }
+        $i: $i - 1;
+    }
+
+}
+
+@media(min-width:1300px){
+    $i: 8;
+    @while $i > 0 {
+        .size-#{$i} {
+            padding: 0 10px;
+            width: 160px * $i;
+        }
+        .push-#{$i} {
+            margin-left: 160px * $i;
+        }
+        $i: $i - 1;
+    }
+
+}
+
+
 
 
