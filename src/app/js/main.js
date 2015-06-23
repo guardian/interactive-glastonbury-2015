@@ -7,7 +7,24 @@ var app;
  * @param {object:json} data - JSON spreedsheet data.
  */
 function updateView(data) {
-	app.set('games', data.sheets.games);
+	app = new Ractive( {
+	    el: el,
+	    template: require('./templates/base.html'),
+	    data: {
+	    	stories: data.stories,
+	    	windowWidth: window.innerWidth,
+	    	windowHeight: window.innerHeight
+	    },
+		components: {
+			gallery: require('./components/gallery'),
+			stories: require('./components/stories'),
+			socialButtons: require('./components/socialButtons'),
+			slide: require('./components/slide')
+		}
+	});
+
+
+	window.addEventListener('onresize', measure);
 }
 
 
@@ -16,22 +33,21 @@ function updateView(data) {
  * @param {object:dom} el - <figure> element passed by boot.js. 
  */
 function boot(el) {
-	app = new Ractive( {
-	    el: el,
-	    template: require('./templates/base.html'),
-	    data: {
-			games: require('./data/data.json')
-		},
-		components: {
-			subView: require('./subView'),
-			socialButtons: require('./components/socialButtons'),
-			gallery: require('./components/gallery')
-		}
-	});
+
 	
-	var key = '1hy65wVx-pjwjSt2ZK7y4pRDlX9wMXFQbwKN0v3XgtXM';
-	var url = '//visuals.guim.co.uk/spreadsheetdata/'+key+'.json';
+	var key = '1o-i8CBAkcbm1t-qNKECzh6VKhlhqygPh2dBhSf-ygLQ';
+	var folder = (window.location.hostname.search('localhost') > -1 ) ? 'docsdata-test' : 'docsdata';
+	var url = '//visuals.guim.co.uk/'+folder+'/'+key+'.json';
 	getJSON(url, updateView);
+}
+
+function measure(){
+	var params = {
+		windowWidth: window.innerWidth,
+		windowHeight: window.innerHeight
+	};
+
+	app.set(params);
 }
 
 // AMD define for boot.js

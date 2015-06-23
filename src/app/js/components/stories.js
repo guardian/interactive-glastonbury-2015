@@ -5,13 +5,12 @@ var Swiper = require('swiper');
 var render = function(){
 	var el = this;
 
-
 	var swiperH = new Swiper(el.find('.swiper-container'), {
-        pagination: el.find('.swiper-pagination'),
+        pagination: el.find('.swiper-container'),
         paginationClickable: true,
         spaceBetween: 50,
         hashnav: true,
-        direction: 'horizontal',
+        direction: 'vertical',
         keyboardControl: true
     });
 
@@ -19,7 +18,7 @@ var render = function(){
 
 module.exports = Ractive.extend({
 	isolated: false,
-	template: require('./gallery.html'),
+	template: require('./stories.html'),
     computed: {
         getLayout: function(){
             var w = this.get('windowWidth');

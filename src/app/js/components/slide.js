@@ -11,7 +11,7 @@ var render = function(){
         paginationClickable: true,
         spaceBetween: 50,
         hashnav: true,
-        direction: 'horizontal',
+        direction: 'vertical',
         keyboardControl: true
     });
 
@@ -19,15 +19,15 @@ var render = function(){
 
 module.exports = Ractive.extend({
 	isolated: false,
-	template: require('./gallery.html'),
+	template: require('./slide.html'),
     computed: {
         getLayout: function(){
             var w = this.get('windowWidth');
 
             if( w < 640 ) {
-               return 'v'
+               return 'h'
             } else {
-                return 'h'
+                return 'v'
             }
         }
     },
