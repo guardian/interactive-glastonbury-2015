@@ -117,8 +117,8 @@ function initSwipers(elems, direction){
 	        paginationClickable: elems[i].getElementsByClassName('swiper-pagination-' + direction.charAt(0) )[0],
 	        nextButton: elems[i].getElementsByClassName('swiper-button-next'),
 	        prevButton: elems[i].getElementsByClassName('swiper-button-prev'),
-	        keyboardControl: true,
-	        mousewheelControl: (direction === 'vertical') ? true : false
+	        keyboardControl: true
+	       //mousewheelControl: (direction === 'vertical') ? true : false
 	    });
 
 	    gallery.on('slideChangeStart', function () {
