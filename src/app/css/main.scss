@@ -22,6 +22,7 @@ body {
 // Remove <figure> margin
 .interactive {
     margin: 0;
+    -webkit-font-smoothing: antialiased;
 }
 
 // Note: Access images using '../app/imgs/' path
@@ -189,6 +190,47 @@ body {
     }
 }
 
+.gv-share {
+    max-width: 1300px;
+    display: none;
+    
+    margin: 0 auto;
+    text-align: center;
+    padding: 20px 0;
+
+    
+
+    .gv-btn {
+        margin-left: 20px;
+        display: inline-block;
+        border-radius: 20px;
+
+        color: #fff;
+        font-family: 'Guardian Text Sans Web', sans-serif;
+        font-size: 16px;
+        padding: 6px 15px;
+        cursor: pointer;
+    }
+}
+
+#gv-share-fbk {
+    background: #005689;
+    .gv-btn {
+        background: #005689;
+        border: 1px solid #fff;
+     }
+}
+
+#gv-share-twt {
+    background: #4bc6df;
+    .gv-btn {
+        background: #4bc6df;
+         color: #333;
+         border: 1px solid #333;
+    }
+   
+}
+
 @media(min-width:580px){
     .slide-quote{
         padding:0;
@@ -224,9 +266,60 @@ body {
     .title-container{
         position: absolute;
     }
-
     .slide-down-arrow {
         display: none;
+    }
+    #swiper-navigation{
+        font-size:0;
+        padding:20px 0;
+    }
+    .navigation-container{
+        width:auto;
+        margin-left:22%;
+    }
+    .swiper-navigation-item{
+        display: inline-block;
+        max-width:65px;
+        height:60px;
+        overflow: hidden;
+        button{
+            width:60px;
+            height:60px;
+            border-radius:60px;
+            border:none;
+            outline:none;
+            cursor:pointer;
+            background-size:cover;
+            border:3px solid transparent;
+            margin-left:5px;
+        }
+        p{
+            vertical-align: top;
+            margin:12px 0 0 0;
+            color:#fff;
+            transition:color 1s;
+            display:inline-block;
+            font-weight:bold;
+            font-family:'Guardian Text Sans Web', Arial;
+            font-size:14px;
+        }
+        &.active{
+            -webkit-animation: slideNav 1s; 
+            max-width:500px;
+            p{
+                padding-right:10px;
+                padding-left:5px;
+                color:#333;
+            }
+            button{
+                border-color:#4BC6DF;
+                transition:border-color 1s;
+            }
+        }
+    }
+    @-webkit-keyframes slideNav {
+        0%   { max-width: 62px; }
+        100% { max-width: 300px; }
     }
 
     .slide-end-block {
@@ -240,6 +333,16 @@ body {
               top: -45px;
         }
     }
+
+    .gv-share { 
+        text-align: left;
+
+
+        .gv-btn {
+            margin-right: 20px;
+        }
+    }
+
 }
 
 @media(min-width:980px){
@@ -306,5 +409,6 @@ body {
 .content__main .gs-container:nth-child(2) {
         padding: 0;
 }
+
 
 

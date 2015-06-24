@@ -1,11 +1,13 @@
-
 {{#isDesktop}}
 <div id="swiper-navigation">
-    {{#stories}}
-    <button>
-        To story
-    </button>
-    {{/stories}}
+    <div class="navigation-container">
+        {{#stories}}
+            <div class="swiper-navigation-item {{#isFirst}}active{{/isFirst}}">
+                <button style="background-image:url({{navImage}})"></button>
+                <p>{{story}}</p>
+            </div>
+        {{/stories}}
+    </div>
 </div>
 <div class="swiper-container swiper-container-{{shellLayout}}">
     <div class="swiper-wrapper">

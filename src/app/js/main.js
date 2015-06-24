@@ -22,7 +22,8 @@ function render(data){
 
 function updateView(data) {
 
-	var storyData = data.stories.map(function(story){
+	var storyData = data.stories.map(function(story,i){
+		story.isFirst = i === 0 ? true : false
 		story.slides = story.slides.map(function(slide,i){
 			slide.isPhoto = slide.slide === "photo" ? true : false
 			slide.isQuote = slide.slide === "quote" ? true : false
@@ -30,6 +31,9 @@ function updateView(data) {
 			slide.isFirst = i === 0 ? true : false
 			slide.isTitle = slide.slide === "title" ? true : false
 			slide.storyTitle = story.story
+			if(slide.isTitle){
+				story.navImage = slide.src + "/" + slide.sizes[0] + '.jpg'
+			}
 			return slide
 		})
 		return story
@@ -149,12 +153,23 @@ function initSwipers(elems, direction){
 		});
 
 	    if(direction === 'horizontal' && windowSize.windowWidth > 740){
-	    	console.log(gallery)
 			gallery.on('onSlideChangeEnd', function(){
-				console.log(gallery.activeIndex)
-
-				//daan active index above will correspond to the galleries ordered 0 - x
+				var currentActive = document.querySelector('.swiper-navigation-item.active');
+				currentActive.className = currentActive.className.replace(" active","");
+				var newActive = document.querySelectorAll('.swiper-navigation-item')[gallery.activeIndex]
+				newActive.className = newActive.className + " active";
 			})
+
+			var btns = document.querySelectorAll('.swiper-navigation-item');
+			for(var i=0;i<btns.length;i++){
+				btns[i].setAttribute('data-btn-id', i)
+		        btns[i].addEventListener('click', function(){
+		        	gallery.slideTo(this.getAttribute('data-btn-id'));
+		        	console.log(this)
+		        }, false);
+		    }
+
+
 		}
 
 
@@ -165,7 +180,14 @@ function initSwipers(elems, direction){
 
 
 function initShare(){
-	document.getElementById('gv-test').innerHTML = detect.isFacebookReferral();
+
+	if(detect.isFacebookReferral() ){
+		document.getElementById('gv-share-fbk').style.display = 'block';
+	} else if(detect.isTwitterReferral() ){
+		document.getElementById('gv-share-twt').style.display = 'block';
+	}
+
+	
 
 
 }
