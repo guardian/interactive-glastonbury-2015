@@ -147,9 +147,14 @@ function initSwipers(elems, direction){
 		    lazyload();
 		});
 
-		gallery.on('onSliderMove', function(){
+	    if(direction === 'horizontal' && windowSize.windowWidth > 740){
+	    	console.log(gallery)
+			gallery.on('onSlideChangeEnd', function(){
+				console.log(gallery.activeIndex)
 
-		})
+				//daan active index above will correspond to the galleries ordered 0 - x
+			})
+		}
 
 
 	}
