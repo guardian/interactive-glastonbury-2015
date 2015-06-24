@@ -125,9 +125,10 @@ function initSwipers(elems, direction){
 	        paginationClickable: elems[i].getElementsByClassName('swiper-pagination-' + direction.charAt(0) )[0],
 	        nextButton:  function(){
 	        	if(windowSize.windowWidth > 740 && direction === 'horizontal'){
-	        		return elems[i].getElementsByClassName('swiper-button-next');
+	        		return elems[i].getElementsByClassName('swiper-end-gallery');
 	        	} else if(windowSize.windowWidth > 740 && direction === 'vertical'){
-	        		return elems[i].getElementsByClassName('swiper-button-down');
+
+	        		return elems[i].getElementsByClassName('swiper-slide-middle');
 	        	}else if(windowSize.windowWidth <= 740 && direction === 'horizontal'){
 	        		return elems[i].getElementsByClassName('swiper-button-next');
 	        	}

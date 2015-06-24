@@ -228,6 +228,18 @@ body {
     .slide-down-arrow {
         display: none;
     }
+
+    .slide-end-block {
+        top: 50%;
+        left: auto;
+        right: 75px;
+
+        .slide-end-text{
+             position: absolute;
+              right: 0;
+              top: -45px;
+        }
+    }
 }
 
 @media(min-width:980px){
