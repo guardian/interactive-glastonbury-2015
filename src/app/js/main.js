@@ -142,7 +142,7 @@ function initSwipers(elems, direction){
 	        prevButton: (windowSize.windowWidth > 740 && direction === 'horizontal') ?  elems[i].getElementsByClassName('swiper-button-prev'): '',
 	        keyboardControl: true,
 	 		
-			//mousewheelControl: (direction === 'vertical') ? true : false,
+			mousewheelControl: (direction === 'vertical') ? true : false,
 			mousewheelReleaseOnEdges: true,
 			freeModeMomentumBounce: false
 
