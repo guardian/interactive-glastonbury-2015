@@ -119,7 +119,7 @@ function initSwipers(elems, direction){
 	        nextButton: elems[i].getElementsByClassName('swiper-button-next'),
 	        prevButton: elems[i].getElementsByClassName('swiper-button-prev'),
 	        keyboardControl: true,
-	 
+	 		
 	       mousewheelControl: (direction === 'vertical') ? true : false,
 	       mousewheelReleaseOnEdges: true,
 	       freeModeMomentumBounce: false
