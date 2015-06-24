@@ -1,12 +1,13 @@
 {{#isDesktop}}
 <div id="swiper-navigation">
-    {{#stories}}
-        <div class="swiper-navigation-item active">
-            <button style="background-image:url({{navImage}})"></button>
-            <p>{{story}}</p>
-        </div>
-
-    {{/stories}}
+    <div class="navigation-container">
+        {{#stories}}
+            <div class="swiper-navigation-item {{#isFirst}}active{{/isFirst}}">
+                <button style="background-image:url({{navImage}})"></button>
+                <p>{{story}}</p>
+            </div>
+        {{/stories}}
+    </div>
 </div>
 <div class="swiper-container swiper-container-{{shellLayout}}">
     <div class="swiper-wrapper">
@@ -21,7 +22,8 @@
                     {{/slides}}
        
                 </div>
-                <div class="swiper-pagination swiper-pagination-{{storyLayout}}"></div>
+ 
+                <div class="swiper-button-next swiper-slide-middle"></div>
             </div>
         </div>
     {{/stories}}
@@ -29,7 +31,9 @@
     </div>
     <!-- Add Pagination -->
 
-    <div class="swiper-pagination swiper-pagination-{{shellLayout}}"></div>
+
+
+
 
     
 </div>

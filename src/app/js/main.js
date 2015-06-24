@@ -18,7 +18,8 @@ function render(data){
 
 
 function updateView(data) {
-	var storyData = data.stories.map(function(story){
+	var storyData = data.stories.map(function(story,i){
+		story.isFirst = i === 0 ? true : false
 		story.slides = story.slides.map(function(slide,i){
 			slide.isPhoto = slide.slide === "photo" ? true : false
 			slide.isQuote = slide.slide === "quote" ? true : false
@@ -128,9 +129,10 @@ function initSwipers(elems, direction){
 	        paginationClickable: elems[i].getElementsByClassName('swiper-pagination-' + direction.charAt(0) )[0],
 	        nextButton:  function(){
 	        	if(windowSize.windowWidth > 740 && direction === 'horizontal'){
-	        		return elems[i].getElementsByClassName('swiper-button-next');
+	        		return elems[i].getElementsByClassName('swiper-end-gallery');
 	        	} else if(windowSize.windowWidth > 740 && direction === 'vertical'){
-	        		return elems[i].getElementsByClassName('swiper-button-down');
+
+	        		return elems[i].getElementsByClassName('swiper-slide-middle');
 	        	}else if(windowSize.windowWidth <= 740 && direction === 'horizontal'){
 	        		return elems[i].getElementsByClassName('swiper-button-next');
 	        	}
@@ -149,9 +151,14 @@ function initSwipers(elems, direction){
 		    lazyload();
 		});
 
-		gallery.on('onSliderMove', function(){
-
-		})
+	    if(direction === 'horizontal' && windowSize.windowWidth > 740){
+			gallery.on('onSlideChangeEnd', function(){
+				var currentActive = document.querySelector('.swiper-navigation-item.active');
+				currentActive.className = currentActive.className.replace(" active","");
+				var newActive = document.querySelectorAll('.swiper-navigation-item')[gallery.activeIndex]
+				newActive.className = newActive.className + " active";
+			})
+		}
 
 
 	}

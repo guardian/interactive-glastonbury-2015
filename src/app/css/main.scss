@@ -22,6 +22,7 @@ body {
 // Remove <figure> margin
 .interactive {
     margin: 0;
+    -webkit-font-smoothing: antialiased;
 }
 
 // Note: Access images using '../app/imgs/' path
@@ -227,23 +228,68 @@ body {
     .slide-down-arrow {
         display: none;
     }
+    #swiper-navigation{
+        font-size:0;
+        padding:20px 0;
+    }
+    .navigation-container{
+        width:auto;
+        margin-left:22%;
+    }
     .swiper-navigation-item{
+        display: inline-block;
+        max-width:65px;
+        height:60px;
+        overflow: hidden;
         button{
-            width:40px;
-            height:40px;
+            width:60px;
+            height:60px;
             border-radius:60px;
             border:none;
             outline:none;
             cursor:pointer;
             background-size:cover;
+            border:3px solid transparent;
+            margin-left:5px;
         }
         p{
-            display:none;
+            vertical-align: top;
+            margin:12px 0 0 0;
+            color:#fff;
+            transition:color 1s;
+            display:inline-block;
+            font-weight:bold;
+            font-family:'Guardian Text Sans Web', Arial;
+            font-size:14px;
         }
         &.active{
+            -webkit-animation: slideNav 1s; 
+            max-width:500px;
             p{
-                display:inline-block;
+                padding-right:10px;
+                padding-left:5px;
+                color:#333;
             }
+            button{
+                border-color:#4BC6DF;
+                transition:border-color 1s;
+            }
+        }
+    }
+    @-webkit-keyframes slideNav {
+        0%   { max-width: 62px; }
+        100% { max-width: 300px; }
+    }
+
+    .slide-end-block {
+        top: 50%;
+        left: auto;
+        right: 75px;
+
+        .slide-end-text{
+             position: absolute;
+              right: 0;
+              top: -45px;
         }
     }
 }
