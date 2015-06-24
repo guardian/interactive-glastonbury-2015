@@ -11,10 +11,17 @@
 			</div>
 		{{/isQuote}}
 		{{#isPhoto}}
-			{{#isFirst}}
-				<h2 class="story-title push-{{offset}} size-{{size}}" style="color:{{color}}; {{#textshadow}}text-shadow: 0 0 4px rgba(0,0,0,{{textshadow}});{{/textshadow}} {{customstyle}}">{{storyTitle}}</h2>
-			{{/isFirst}}
-			<p class="picture-credit" {{#textshadow}}style="text-shadow:0 0 4px rgba(0,0,0,{{textshadow}})"{{/textshadow}}>{{caption}}</p>
+			<div class="picture-credit">
+				<div class="credit-container">
+					<p {{#textshadow}}style="text-shadow:0 0 4px rgba(0,0,0,{{textshadow}})"{{/textshadow}}>{{caption}}</p>
+				</div>
+			</div>
 		{{/isPhoto}}
+		{{#isTitle}}
+			<div class="title-container hp-{{horizontalposition}} vp-{{verticalposition}} size-{{size}}">
+				<h2 class="story-title" style="color:{{color}}; {{#textshadow}}text-shadow: 0 0 8px rgba(0,0,0,{{textshadow}});{{/textshadow}} {{customstyle}}">{{headline}}</h2>
+				<h3>{{caption}} {{credit}}</h3>
+			</div>
+		{{/isTitle}}
 	</div>
 </div>
