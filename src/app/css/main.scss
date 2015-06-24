@@ -224,9 +224,27 @@ body {
     .title-container{
         position: absolute;
     }
-
     .slide-down-arrow {
         display: none;
+    }
+    .swiper-navigation-item{
+        button{
+            width:40px;
+            height:40px;
+            border-radius:60px;
+            border:none;
+            outline:none;
+            cursor:pointer;
+            background-size:cover;
+        }
+        p{
+            display:none;
+        }
+        &.active{
+            p{
+                display:inline-block;
+            }
+        }
     }
 }
 

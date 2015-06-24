@@ -26,6 +26,9 @@ function updateView(data) {
 			slide.isFirst = i === 0 ? true : false
 			slide.isTitle = slide.slide === "title" ? true : false
 			slide.storyTitle = story.story
+			if(slide.isTitle){
+				story.navImage = slide.src + "/" + slide.sizes[0] + '.jpg'
+			}
 			return slide
 		})
 		return story
