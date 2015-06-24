@@ -1,6 +1,7 @@
 var Mustache = require('mustache');
 var Swiper = require('swiper');
 var getJSON = require('./utils/getjson'); 
+var detect = require('./utils/detect'); 
 
 var app;
 var el;
@@ -14,10 +15,13 @@ var slides;
 function render(data){
 	storyData = data;
 	updateView(storyData);
+	
+
 }
 
 
 function updateView(data) {
+
 	var storyData = data.stories.map(function(story){
 		story.slides = story.slides.map(function(slide,i){
 			slide.isPhoto = slide.slide === "photo" ? true : false
@@ -69,6 +73,7 @@ function updateView(data) {
 	slides = el.getElementsByClassName('swiper-slide-pending');
 
 	lazyload();
+	initShare();
 	//window.addEventListener('onresize', measure);
 }
 
@@ -90,7 +95,7 @@ function addBgImg(div){
 	var w = div.offsetWidth;
 	for(var i = 0; i < sizes.length; i ++){
 		
-		if( Number(sizes[i]) > w ){
+		if( Number(sizes[i]) * .6 > w ){
 			size = sizes[i];
 			break;
 		}
@@ -101,15 +106,11 @@ function addBgImg(div){
 
 	}
 
-
-
 	var src = div.getAttribute('data-img-src');
 	var url = src + '/' + size + '.jpg';
 	div.style.backgroundImage = "url(" + url + ")";
 
 }
-
-
 
 function initSwipers(elems, direction){
 
@@ -137,7 +138,7 @@ function initSwipers(elems, direction){
 	        prevButton: (windowSize.windowWidth > 740 && direction === 'horizontal') ?  elems[i].getElementsByClassName('swiper-button-prev'): '',
 	        keyboardControl: true,
 	 		
-			mousewheelControl: (direction === 'vertical') ? true : false,
+			//mousewheelControl: (direction === 'vertical') ? true : false,
 			mousewheelReleaseOnEdges: true,
 			freeModeMomentumBounce: false
 
@@ -160,6 +161,15 @@ function initSwipers(elems, direction){
 	}
 
 }
+
+
+
+function initShare(){
+	document.getElementById('gv-test').innerHTML = detect.isFacebookReferral();
+
+
+}
+
 
 
 

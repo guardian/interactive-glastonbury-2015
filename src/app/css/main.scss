@@ -71,7 +71,7 @@ body {
 }
 
 .swiper-container {
-    width: 100%;
+    max-width: 1300px;
     height: 80vh;
 }
 .swiper-slide {
@@ -295,6 +295,16 @@ body {
 
 }
 
+.content--interactive .content__main .gs-container:first-child {
+        display: none;
+}
 
+.content__head .gs-container:first-child {
+        display: none;
+}
+
+.content__main .gs-container:nth-child(2) {
+        padding: 0;
+}
 
 
