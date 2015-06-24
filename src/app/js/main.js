@@ -22,6 +22,7 @@ function updateView(data) {
 		story.slides = story.slides.map(function(slide,i){
 			slide.isPhoto = slide.slide === "photo" ? true : false
 			slide.isQuote = slide.slide === "quote" ? true : false
+			slide.isEnd = slide.slide === "end" ? true : false
 			slide.isFirst = i === 0 ? true : false
 			slide.storyTitle = story.story
 			return slide

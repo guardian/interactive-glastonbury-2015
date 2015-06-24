@@ -1,7 +1,8 @@
 <div 
 	class="swiper-slide swiper-slide-{{slide}} {{#src}}swiper-slide-pending{{/src}}" 
 	{{#backgroundcolor}}style="background-color:{{backgroundcolor}}"{{/backgroundcolor}} 
-	{{#getPhotoData}}data-img-src='{{src}}' data-img-sizes='{{sizes}}'{{/getPhotoData}}
+	{{#getPhotoData}}data-img-src='{{src}}' data-img-sizes='{{sizes}}'{{/getPhotoData}}	
+	{{#style}} style='{{style}}' {{/style}}
 >
 	<div class="slide-container slide-{{slide}}">
 		{{#isQuote}}
@@ -16,5 +17,9 @@
 			{{/isFirst}}
 			<p class="picture-credit" {{#textshadow}}style="text-shadow:0 0 4px rgba(0,0,0,{{textshadow}})"{{/textshadow}}>{{caption}}</p>
 		{{/isPhoto}}
+		{{#isEnd}}
+
+
+		{{/isEnd}}
 	</div>
 </div>
