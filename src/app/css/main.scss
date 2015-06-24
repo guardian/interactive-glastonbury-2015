@@ -66,13 +66,13 @@ body {
 }
 
 .gv-gallery {
-    height: 80vh;
+    
     width: 100%;
 }
 
 .swiper-container {
     width: 100%;
-    height: 100%;
+    height: 80vh;
 }
 .swiper-slide {
     text-align: center;
@@ -161,6 +161,23 @@ body {
     }
 }
 
+.slide-end-block {
+
+      position: absolute;
+      bottom: 20%;
+      left: 0;
+      width: 100%;
+      text-align: center;
+    
+    .slide-end-text {
+        color: inherit;
+        font-family:'Guardian Egyptian Web', Georgia;
+        font-weight: 100;
+        font-size: 3em;
+    }
+}
+
+
 @media(min-width:480px){
     .slide-quote{
         quote{
@@ -206,6 +223,10 @@ body {
     }
     .title-container{
         position: absolute;
+    }
+
+    .slide-down-arrow {
+        display: none;
     }
 }
 
