@@ -269,13 +269,38 @@ body {
     .slide-down-arrow {
         display: none;
     }
+
     #swiper-navigation{
         font-size:0;
-        padding:20px 0;
+        padding:20px 10px;
+        &:after{
+            clear:both;
+            content:'';
+            display: block;
+        }
+    }
+    .swiper-headline{
+        font-size:16px;
+        font-family:'Guardian Egyptian Web', Georgia;
+        width:220px;
+        float:left;
+        padding-top:8px;
+        h2{
+            font-size:24px;
+            line-height:1em;
+            margin:0;
+        }
+        h3{
+            font-weight:100;
+            font-size:16px;
+            margin:0;
+            color:#767676;
+        }
     }
     .navigation-container{
         width:auto;
-        margin-left:22%;
+        float:left;
+        margin-left:20px;
     }
     .swiper-navigation-item{
         display: inline-block;
@@ -295,7 +320,7 @@ body {
         }
         p{
             vertical-align: top;
-            margin:12px 0 0 0;
+            margin:20px 0 0 0;
             color:#fff;
             transition:color 1s;
             display:inline-block;
@@ -346,6 +371,9 @@ body {
 }
 
 @media(min-width:980px){
+    .navigation-container{
+        margin-left:60px;
+    }
     .slide-quote{
         max-width:620px;
         .quote-container{
