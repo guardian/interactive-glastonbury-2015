@@ -37,13 +37,16 @@ function updateView(data) {
 			shellLayout: (windowSize.windowWidth <=640) ? 'v' : 'h',
 			storyLayout: (windowSize.windowWidth <=640) ? 'h' : 'v',
 			getPhotoData: function(){
-			console.log(this.alt)
+			
 				if(windowSize.windowWidth <=640 && this.alt){
 
 					return this.alt;
 				} else {
 					return this;
 				}							
+			},
+			isDesktop: function(){
+				return (windowSize.windowWidth <=640) ? false : true;
 			}
 		},
 		{
@@ -113,7 +116,7 @@ function initSwipers(elems, direction){
 		var gallery = new Swiper(elems[i], {
 	        pagination: elems[i].getElementsByClassName('swiper-pagination-' + direction.charAt(0) )[0] ,
 	        paginationClickable: true,
-	        spaceBetween: 1,
+	        spaceBetween: 0,
 	        direction: direction,
 	        paginationClickable: elems[i].getElementsByClassName('swiper-pagination-' + direction.charAt(0) )[0],
 	        nextButton: elems[i].getElementsByClassName('swiper-button-next'),

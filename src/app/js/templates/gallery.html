@@ -1,4 +1,4 @@
-
+{{#isDesktop}}
 <div class="swiper-container swiper-container-{{shellLayout}}">
     <div class="swiper-wrapper">
    
@@ -25,3 +25,31 @@
     <div class="swiper-button-next"></div>
     <div class="swiper-button-prev"></div>
 </div>
+{{/isDesktop}}
+
+
+{{^isDesktop}}
+
+
+    {{#stories}} 
+
+        <div class="swiper-container swiper-container-{{storyLayout}}">
+            <div class="swiper-pagination swiper-pagination-{{storyLayout}}"></div>
+
+                <div class="swiper-wrapper">
+                
+                    {{#slides}}
+                        {{>slide}}
+                    {{/slides}}
+       
+                </div>
+
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+
+        </div>
+
+     {{/stories}}   
+
+
+{{/isDesktop}}
