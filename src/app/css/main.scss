@@ -300,6 +300,7 @@ body {
         }
     }
     .navigation-container{
+        background: #fff;
         width:auto;
         float:left;
         margin-left:20px;
@@ -375,6 +376,7 @@ body {
 @media(min-width:980px){
     .navigation-container{
         margin-left:60px;
+         background: #fff;
     }
     .slide-quote{
         max-width:620px;
