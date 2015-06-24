@@ -36,11 +36,11 @@ function updateView(data) {
 		{
 			stories: data.stories,
 			windowSize: windowSize,
-			shellLayout: (windowSize.windowWidth <=640) ? 'v' : 'h',
-			storyLayout: (windowSize.windowWidth <=640) ? 'h' : 'v',
+			shellLayout: (windowSize.windowWidth <=740) ? 'v' : 'h',
+			storyLayout: (windowSize.windowWidth <=740) ? 'h' : 'v',
 			getPhotoData: function(){
 			
-				if(windowSize.windowWidth <=640 && this.alt){
+				if(windowSize.windowWidth <=740 && this.alt){
 
 					return this.alt;
 				} else {
@@ -48,7 +48,7 @@ function updateView(data) {
 				}							
 			},
 			isDesktop: function(){
-				return (windowSize.windowWidth <=640) ? false : true;
+				return (windowSize.windowWidth <=740) ? false : true;
 			}
 		},
 		{
@@ -115,25 +115,40 @@ function initSwipers(elems, direction){
 
 	for(var i = 0; i < elems.length; i++) {
 
+
+
 		var gallery = new Swiper(elems[i], {
-	        pagination: elems[i].getElementsByClassName('swiper-pagination-' + direction.charAt(0) )[0] ,
+	        //pagination: 		(windowSize.windowWidth > 640 && direction === 'horizontal') ? '' : elems[i].getElementsByClassName('swiper-pagination-' + direction.charAt(0) )[0],
 	        paginationClickable: true,
 	        spaceBetween: 0,
 	        direction: direction,
 	        paginationClickable: elems[i].getElementsByClassName('swiper-pagination-' + direction.charAt(0) )[0],
-	        nextButton: elems[i].getElementsByClassName('swiper-button-next'),
-	        prevButton: elems[i].getElementsByClassName('swiper-button-prev'),
+	        nextButton:  function(){
+	        	if(windowSize.windowWidth > 740 && direction === 'horizontal'){
+	        		return elems[i].getElementsByClassName('swiper-button-next');
+	        	} else if(windowSize.windowWidth > 740 && direction === 'vertical'){
+	        		return elems[i].getElementsByClassName('swiper-button-down');
+	        	}else if(windowSize.windowWidth <= 740 && direction === 'horizontal'){
+	        		return elems[i].getElementsByClassName('swiper-button-next');
+	        	}
+	        	return '';
+	        }(),
+	        prevButton: (windowSize.windowWidth > 740 && direction === 'horizontal') ?  elems[i].getElementsByClassName('swiper-button-prev'): '',
 	        keyboardControl: true,
 	 		
-	       mousewheelControl: (direction === 'vertical') ? true : false,
-	       mousewheelReleaseOnEdges: true,
-	       freeModeMomentumBounce: false
+			mousewheelControl: (direction === 'vertical') ? true : false,
+			mousewheelReleaseOnEdges: true,
+			freeModeMomentumBounce: false
 
 	    });
 
 	    gallery.on('slideChangeStart', function () {
 		    lazyload();
 		});
+
+		gallery.on('onSliderMove', function(){
+
+		})
 
 
 	}
