@@ -104,25 +104,60 @@ body {
         color:#fff;
         margin-top:0.2em;
     }
+    .quote-container{
+        position:absolute;
+        top:50%;
+        transform:translateY(-50%);
+        quote,.quote-credit{
+            max-width:540px;
+            margin:0 auto;
+            display:block;
+        }
+    }
 }
 
 .slide-photo{
     .picture-credit{
         position: absolute;
-        bottom:10px;
-        left:10px;
-        right:10px;
+        bottom:0;
+        left:0;
+        right:0;
         line-height: 1.3em;
         color:#fff;
         font-size:14px;
         margin:0;
-        max-width:540px;
+        width:100%;
+        .credit-container{
+            background:linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.2) 20%, rgba(0,0,0,1));
+            height:auto;
+            padding-top:40px;
+            padding-bottom:1px;
+        }
+        p{
+            margin: 0 0 10px 10px;
+            max-width: 700px;
+            text-shadow: 0 1px 1px rgba(0,0,0,0.4);
+            font-size: 12px;
+            font-family:'Guardian Text Sans Web', Arial;
+        }
     }
+}
+
+.slide-title{
     .story-title{
         color: #fff;
         font-size: 3em;
         // max-width: 530px;
         line-height: 1em;
+        margin-top:0;
+        margin-bottom:0
+    }
+    h3{
+        color:#fff;
+        font-weight:normal;
+        font-size:18px;
+        line-height:1.3em;
+        margin-bottom:2em;
     }
 }
 
@@ -140,30 +175,11 @@ body {
 @media(min-width:580px){
     .slide-quote{
         padding:0;
-        .quote-container{
-            position:absolute;
-            top:50%;
-            transform:translateY(-50%);
-            quote,.quote-credit{
-                max-width:540px;
-                margin:0 auto;
-                display:block;
-            }
-        }
-        
-
     }
 }
 @media(min-width:740px){
     $i: 4;
     @while $i > 0 {
-        .push-#{$i*2} {
-            margin-left: 90px * ($i *2);
-        }
-        .push-#{($i*2)-1} {
-            margin-left: 90px * ($i *2);
-        }
-
         .size-#{$i*2} {
             width: 90px * ($i *2);
         }
@@ -172,6 +188,24 @@ body {
         }
 
       $i: $i - 1;
+    }
+    .hp-middle{
+        left:0;
+        right:0;
+        margin:0 auto;
+    }
+    .hp-right{
+        right:0;
+    }
+    .vp-middle{
+        top:50%;
+        transform:translateY(-50%);
+    }
+    .vp-bottom{
+        bottom:0;
+    }
+    .title-container{
+        position: absolute;
     }
 }
 
