@@ -123,7 +123,7 @@ function initSwipers(elems, direction){
 
 
 		var gallery = new Swiper(elems[i], {
-	        //pagination: 		(windowSize.windowWidth > 640 && direction === 'horizontal') ? '' : elems[i].getElementsByClassName('swiper-pagination-' + direction.charAt(0) )[0],
+	        pagination: 		(windowSize.windowWidth > 640 && direction === 'horizontal') ? '' : elems[i].getElementsByClassName('swiper-pagination-' + direction.charAt(0) )[0],
 	        paginationClickable: true,
 	        spaceBetween: 0,
 	        direction: direction,
