@@ -19,9 +19,8 @@
 			</div>
 		{{/isQuote}}
 		{{#isPhoto}}
-			<div class="picture-credit">
+			<div class="picture-credit portrait-{{portrait}}">
 				<div class="credit-container {{^isDesktop}} {{#alt.hide_gradient}}mobile-hide-gradient{{/alt.hide_gradient}}{{/isDesktop}}">
-
 					<p {{#textshadow}}style="text-shadow:0 0 4px rgba(0,0,0,{{textshadow}})"{{/textshadow}}>{{caption}}</p>
 				</div>
 			</div>
