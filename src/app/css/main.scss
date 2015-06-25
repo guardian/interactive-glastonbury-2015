@@ -100,7 +100,7 @@ body {
 
 .slide-mobile-opener {
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     background-repeat: no-repeat;
     background-size: auto 50%;
     background-position: top center;
@@ -109,13 +109,14 @@ body {
     .slide-title-container {
         padding: 53vh 20px 0 20px;;
         height: 100%;
-        color: #fff;
+
 
         .story-title {
             margin: 0;
             font-size: 2em;
             font-family: Guardian Egyptian Web,Georgia;
             font-weight: 900;
+            line-height: 1;
         }
 
         p {
@@ -128,7 +129,7 @@ body {
             line-height: 1.4;
             font-weight: 900;
             font-family: Guardian Egyptian Web,Georgia;
-            border-top: 1px dotted #94b1ca;
+            
             padding-top: 10px;
         }
 
@@ -136,6 +137,14 @@ body {
             padding-right: 10px;
         }
 
+        
+    }
+}
+
+.scheme-blue {
+    background-color: #005689;
+            color: #fff;
+    .slide-title-container {
         .title-story-headline:nth-child(even){
             color: #fff;
         }
@@ -143,7 +152,45 @@ body {
             color: #c5d4ea;
         }
     }
+
+     .story-list {
+        border-top: 1px dotted #94b1ca;
+     }
+
 }
+
+
+.scheme-pink {
+    background-color: #b82266;
+    color: #fff;
+    .slide-title-container {
+        .title-story-headline:nth-child(even){
+            color: #ffdfee;
+        }
+        .title-story-headline:nth-child(odd){
+            color: #ff84be;
+        }
+    }
+
+}
+
+
+.scheme-green {
+    background-color: #298422;
+    color: #fff;
+
+    .slide-title-container {
+        .title-story-headline:nth-child(odd){
+            color: #9ad596;
+        }
+        .title-story-headline:nth-child(even){
+            color: #174913;
+        }
+    }
+
+}
+
+
 
 .slide-quote{
     max-width:540px;
@@ -233,6 +280,20 @@ body {
     }
 }
 
+@media(min-width:400px){
+
+
+    .slide-mobile-opener {
+
+        .slide-title-container {
+            .story-title {
+                font-size: 2.5em;
+            }
+
+        }
+    }
+}
+
 
 @media(min-width:480px){
     .slide-quote{
@@ -241,6 +302,16 @@ body {
         }
         .quote-credit{
             font-size:42px;
+        }
+    }
+
+    .slide-mobile-opener {
+
+        .slide-title-container {
+            .story-title {
+                font-size: 2.5em;
+            }
+
         }
     }
 }
