@@ -104,6 +104,45 @@ body {
     background-repeat: no-repeat;
     background-size: auto 50%;
     background-position: top center;
+
+
+    .slide-title-container {
+        padding: 53vh 20px 0 20px;;
+        height: 100%;
+        color: #fff;
+
+        .story-title {
+            margin: 0;
+            font-size: 2em;
+            font-family: Guardian Egyptian Web,Georgia;
+            font-weight: 900;
+        }
+
+        p {
+        margin: 0;
+        }
+
+        .story-list {
+            margin-top: 40px;
+            font-size: 1.2em;
+            line-height: 1.4;
+            font-weight: 900;
+            font-family: Guardian Egyptian Web,Georgia;
+            border-top: 1px dotted #94b1ca;
+            padding-top: 10px;
+        }
+
+        .title-story-headline {
+            padding-right: 10px;
+        }
+
+        .title-story-headline:nth-child(even){
+            color: #fff;
+        }
+        .title-story-headline:nth-child(odd){
+            color: #c5d4ea;
+        }
+    }
 }
 
 .slide-quote{
