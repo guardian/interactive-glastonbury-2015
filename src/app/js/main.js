@@ -38,11 +38,12 @@ function updateView(data) {
 		})
 		return story
 	})
-	console.log(data.stories)
+	console.log(data.stories, data.config)
 	var rendered = Mustache.render(
 		require('./templates/base.html'), 
 		{
 			stories: data.stories,
+			config: data.config,
 			windowSize: windowSize,
 			shellLayout: (windowSize.windowWidth <=740) ? 'v' : 'h',
 			storyLayout: (windowSize.windowWidth <=740) ? 'h' : 'v',
