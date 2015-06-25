@@ -54,7 +54,7 @@
     data-img-src='{{config.src}}' data-img-sizes='{{config.sizes}}'
 
     >
-        <div class="slide-title-container">
+        <div class="slide-title-container"  style='height:{{windowSize.windowHeight}}px;'>
             <h2 class="story-title" >{{config.headline}}</h2>
             <p>{{config.standfirst}}</p>
             <div class='story-list'>
@@ -70,7 +70,7 @@
 
     {{#stories}} 
 
-        <div class="swiper-container swiper-container-{{storyLayout}}">
+        <div class="swiper-container swiper-container-{{storyLayout}}" style='height:{{windowSize.windowHeight}}px;'>
         
 
                 <div class="swiper-wrapper">
