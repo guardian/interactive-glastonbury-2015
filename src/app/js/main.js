@@ -243,7 +243,7 @@ function boot(div) {
     if(params.key){
    
         var folder = (window.location.hostname.search('localhost') > -1  || window.location.hostname.search('interactive.guim.co.uk') > -1) ? 'docsdata-test' : 'docsdata';
-		var url = '//visuals.guim.co.uk/'+folder+'/'+params.key+'.json';
+		var url = 'http://interactive.guim.co.uk/'+folder+'/'+params.key+'.json';
 		getJSON(url, updateView);
     } else {
         console.log('Please enter a key in the alt text of the embed or as a param on the url in the format "key="" ')
