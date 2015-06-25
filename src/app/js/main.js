@@ -21,7 +21,6 @@ function render(data){
 
 
 function updateView(data) {
-
 	var storyData = data.stories.map(function(story,i){
 		story.isFirst = i === 0 ? true : false
 		story.slides = story.slides.map(function(slide,i){
@@ -38,7 +37,7 @@ function updateView(data) {
 		})
 		return story
 	})
-	console.log(data.stories, data.config)
+
 	var rendered = Mustache.render(
 		require('./templates/base.html'), 
 		{
@@ -93,13 +92,11 @@ function lazyload(){
 }
 
 function addBgImg(div){
-
 	div.className.replace('swiper-slide-pending', '');
-
 	var sizes = div.getAttribute('data-img-sizes').split(',');
 	var w = div.offsetWidth;
+	
 	for(var i = 0; i < sizes.length; i ++){
-		
 		if( Number(sizes[i]) * .6 > w ){
 			size = sizes[i];
 			break;
@@ -108,7 +105,6 @@ function addBgImg(div){
 		if(i == sizes.length-1){
 			size = sizes[i];
 		}
-
 	}
 
 	var src = div.getAttribute('data-img-src');
@@ -118,10 +114,7 @@ function addBgImg(div){
 }
 
 function initSwipers(elems, direction){
-
 	for(var i = 0; i < elems.length; i++) {
-
-
 
 		var gallery = new Swiper(elems[i], {
 	        pagination: 		(windowSize.windowWidth > 640 && direction === 'horizontal') ? '' : elems[i].getElementsByClassName('swiper-pagination-' + direction.charAt(0) )[0],
@@ -169,11 +162,7 @@ function initSwipers(elems, direction){
 		        	console.log(this)
 		        }, false);
 		    }
-
-
 		}
-
-
 	}
 
 }
@@ -181,16 +170,49 @@ function initSwipers(elems, direction){
 
 
 function initShare(){
+	var shareButtons = document.querySelectorAll('.shareButtonContainer button');
+	for(var i = 0; i < shareButtons.length; i++){
+		var shareButton = shareButtons[i];
+		shareButton.addEventListener('click',shareStory)
+	}
 
 	if(detect.isFacebookReferral() ){
 		document.getElementById('gv-share-fbk').style.display = 'block';
 	} else if(detect.isTwitterReferral() ){
 		document.getElementById('gv-share-twt').style.display = 'block';
 	}
+}
 
-	
+function shareStory(e){
+	var platform = e.target.className.replace('-share','');
+	var shareWindow;
+    var twitterBaseUrl = "http://twitter.com/share?text=";
+    var facebookBaseUrl = "https://www.facebook.com/dialog/feed?display=popup&app_id=741666719251986&link=";
+    var shareUrl = "http://www.theguardian.com/politics/ng-interactive/2015/may/07/general-election-2015-voters-voices"
 
-
+    var message = 'Glastonbury! Pictures!';
+    var shareImage = "http://media.guim.co.uk/b93f5ac5cb86e8bb1a46ab672ca89ea46ff16fe1/0_0_3543_2362/2000.jpg";
+     
+    if(platform === "twitter"){
+        shareWindow = 
+            twitterBaseUrl + 
+            encodeURIComponent(message) + 
+            "&url=" + 
+            encodeURIComponent(shareUrl)   
+    }else if(platform === "facebook"){
+        shareWindow = 
+            facebookBaseUrl + 
+            encodeURIComponent(shareUrl) + 
+            "&picture=" + 
+            encodeURIComponent(shareImage) + 
+            "&redirect_uri=http://www.theguardian.com";
+    }else if(platform === "mail"){
+        shareWindow =
+            "mailto:" +
+            "?subject=" + message +
+            "&body=" + shareUrl 
+    }
+    window.open(shareWindow, platform + "share", "width=640,height=320");     
 }
 
 

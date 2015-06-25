@@ -12,7 +12,7 @@
 			</div>
 		{{/isQuote}}
 		{{#isPhoto}}
-			<div class="picture-credit">
+			<div class="picture-credit portrait-{{portrait}}">
 				<div class="credit-container">
 					<p {{#textshadow}}style="text-shadow:0 0 4px rgba(0,0,0,{{textshadow}})"{{/textshadow}}>{{caption}}</p>
 				</div>
@@ -20,23 +20,27 @@
 		{{/isPhoto}}
 
 		{{#end}}
-
-
 			<div class='slide-end-block' {{#end_style}} style='{{end_style}}' {{/end_style}}>
-
+				<div class="shareBlock">
+					<div class="shareButtonContainer">
+						<p>Share this</p>
+						<div class="shareButtons">
+							<button class="facebook-share"></button>
+							<button class="twitter-share"></button>
+							<button class="mail-share"></button>
+						</div>
+					</div>
+				</div>
 				<div class='slide-end-text'>This way</div>
-
 				<svg class='slide-down-arrow' x="0px" y="0px" width="50px" height="50px" viewBox="0 0 50 50" enable-background="new 0 0 50 50" xml:space="preserve">
 					<polygon fill="#FFFFFF" points="44.9,13.2 25,29.9 5.1,13.2 3.1,15.1 21.1,33.1 21.1,33.1 24,36 26,36 28.9,33.1 46.9,15.1 "/>
 				</svg>
-
 			</div>
 			{{#isDesktop}}
 		 	   <div class="swiper-button-next swiper-end-gallery"></div>
 		    {{/isDesktop}}
-
-
 		{{/end}}
+
 		{{#isTitle}}
 			<div class="title-container hp-{{horizontalposition}} vp-{{verticalposition}} size-{{size}}">
 				<h2 class="story-title" style="color:{{color}}; {{#textshadow}}text-shadow: 0 0 8px rgba(0,0,0,{{textshadow}});{{/textshadow}} {{customstyle}}">{{headline}}</h2>
