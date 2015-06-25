@@ -176,15 +176,22 @@ function initShare(){
 		shareButton.addEventListener('click',shareStory)
 	}
 
+	shareButtons = document.querySelectorAll('.gv-btn');
+	for(var i = 0; i < shareButtons.length; i++){
+		var shareButton = shareButtons[i];
+		shareButton.addEventListener('click',shareStory)
+	}
+
 	if(detect.isFacebookReferral() ){
-		document.getElementById('gv-share-fbk').style.display = 'block';
+		document.getElementById('gv-share-facebook').style.display = 'block';
 	} else if(detect.isTwitterReferral() ){
-		document.getElementById('gv-share-twt').style.display = 'block';
+		document.getElementById('gv-share-twitter').style.display = 'block';
 	}
 }
 
 function shareStory(e){
-	var platform = e.target.className.replace('-share','');
+
+	var platform;
 	var shareWindow;
     var twitterBaseUrl = "http://twitter.com/share?text=";
     var facebookBaseUrl = "https://www.facebook.com/dialog/feed?display=popup&app_id=741666719251986&link=";
@@ -193,20 +200,23 @@ function shareStory(e){
     var message = 'Glastonbury! Pictures!';
     var shareImage = "http://media.guim.co.uk/b93f5ac5cb86e8bb1a46ab672ca89ea46ff16fe1/0_0_3543_2362/2000.jpg";
      
-    if(platform === "twitter"){
+    if(e.target.className.search('twitter') > -1){
+    	platform = 'twitter';
         shareWindow = 
             twitterBaseUrl + 
             encodeURIComponent(message) + 
             "&url=" + 
             encodeURIComponent(shareUrl)   
-    }else if(platform === "facebook"){
+    }else if(e.target.className.search('facebook') > -1){
+    	platform = 'facebook';
         shareWindow = 
             facebookBaseUrl + 
             encodeURIComponent(shareUrl) + 
             "&picture=" + 
             encodeURIComponent(shareImage) + 
             "&redirect_uri=http://www.theguardian.com";
-    }else if(platform === "mail"){
+    } else if(e.target.className.search('mail') > -1){
+    	platform = 'mail';
         shareWindow =
             "mailto:" +
             "?subject=" + message +

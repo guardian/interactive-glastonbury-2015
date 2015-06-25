@@ -339,7 +339,7 @@ body {
     }
 }
 
-.gv-share {
+.gv-share-facebook, .gv-share-twitter {
     max-width: 1300px;
     display: none;
     
@@ -362,7 +362,7 @@ body {
     }
 }
 
-#gv-share-fbk {
+.gv-share-facebook {
     background: #005689;
     .gv-btn {
         background: #005689;
@@ -370,7 +370,7 @@ body {
      }
 }
 
-#gv-share-twt {
+.gv-share-twitter {
     background: #4bc6df;
     .gv-btn {
         background: #4bc6df;
