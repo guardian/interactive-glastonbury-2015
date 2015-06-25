@@ -382,6 +382,42 @@ body {
     display: none;
 }
 
+.shareButtonContainer{
+    text-align: left;
+    p{
+        margin:0;
+        font-family:"Guardian Text Sans Web", Arial;
+        font-size:18px;
+        font-weight:bold;
+        text-align: left;
+    }
+    button{
+        height:42px;
+        width:42px;
+        background-color:rgba(0,0,0,0.2);
+        margin:0;
+        border:none;
+        border-radius:42px;
+        outline:none;
+        cursor:pointer;
+        transition:background-color 0.5s;
+        background-position:center;
+        background-repeat: no-repeat;
+        &:hover{
+            background-color:rgba(0,0,0,0.4)
+        }
+        &.facebook-share{
+            background-image:url(/app/imgs/facebook.svg);
+        }
+        &.twitter-share{
+            background-image:url(/app/imgs/twitter.svg);
+        }
+        &.mail-share{
+            background-image:url(/app/imgs/mail.svg);
+        }
+    }
+}
+
 @media(min-width:580px){
     .slide-quote{
         padding:0;
@@ -463,9 +499,14 @@ body {
         width:auto;
         float:left;
         margin-left:20px;
+        &:after{
+            content:'';
+            clear:both;
+            display:block;
+        }
     }
     .swiper-navigation-item{
-        display: inline-block;
+        float:left;
         max-width:65px;
         height:60px;
         overflow: hidden;
@@ -476,7 +517,8 @@ body {
             border:none;
             outline:none;
             cursor:pointer;
-            background-size:cover;
+            background-size:auto 60px;
+            background-position:center;
             border:3px solid transparent;
             margin-left:5px;
         }
@@ -529,6 +571,24 @@ body {
             margin-right: 20px;
         }
     }
+    .slide-photo{
+        .picture-credit.portrait-true{
+            width:50%;
+            bottom:50%;
+            .credit-container{
+                background:none;
+                padding-top:0;
+                p{
+                    font-size:28px;
+                    font-family:'Guardian Egyptian Web', Georgia;
+                    font-weight: 100;
+                    line-height:1.3em;
+                    padding:0 40px;
+
+                }
+            }
+        }
+    }
     .swiper-slide-middle, .swiper-end-gallery{
         background-color: rgba(0,0,0,0.5);
         border-radius: 40px;
@@ -556,40 +616,7 @@ body {
         top:-100px;
     }
     .shareButtonContainer{
-        text-align: left;
         padding-top:50px;
-        p{
-            margin:0;
-            font-family:"Guardian Text Sans Web", Arial;
-            font-size:18px;
-            font-weight:bold;
-            text-align: left;
-        }
-        button{
-            height:42px;
-            width:42px;
-            background-color:rgba(0,0,0,0.2);
-            margin:0;
-            border:none;
-            border-radius:42px;
-            outline:none;
-            cursor:pointer;
-            transition:background-color 0.5s;
-            background-position:center;
-            background-repeat: no-repeat;
-            &:hover{
-                background-color:rgba(0,0,0,0.4)
-            }
-            &.facebook-share{
-                background-image:url(/app/imgs/facebook.svg);
-            }
-            &.twitter-share{
-                background-image:url(/app/imgs/twitter.svg);
-            }
-            &.mail-share{
-                background-image:url(/app/imgs/mail.svg);
-            }
-        }
     }
 }
 

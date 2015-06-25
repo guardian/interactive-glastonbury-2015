@@ -8,6 +8,7 @@ var el;
 var storyData;
 var windowSize;
 var slides;
+var globalData;
 /**
  * Update app using fetched JSON data
  * @param {object:json} data - JSON spreedsheet data.
@@ -15,12 +16,10 @@ var slides;
 function render(data){
 	storyData = data;
 	updateView(storyData);
-	
-
 }
 
-
 function updateView(data) {
+	globalData = data.config;
 	var storyData = data.stories.map(function(story,i){
 		story.isFirst = i === 0 ? true : false
 		story.slides = story.slides.map(function(slide,i){
@@ -190,21 +189,20 @@ function initShare(){
 }
 
 function shareStory(e){
-
 	var platform;
 	var shareWindow;
     var twitterBaseUrl = "http://twitter.com/share?text=";
     var facebookBaseUrl = "https://www.facebook.com/dialog/feed?display=popup&app_id=741666719251986&link=";
-    var shareUrl = "http://www.theguardian.com/politics/ng-interactive/2015/may/07/general-election-2015-voters-voices"
-
-    var message = 'Glastonbury! Pictures!';
-    var shareImage = "http://media.guim.co.uk/b93f5ac5cb86e8bb1a46ab672ca89ea46ff16fe1/0_0_3543_2362/2000.jpg";
+    var shareUrl = globalData.url;
+    var message = globalData.sharetext;
+    var shareImage = globalData.shareimage;
+    var twitterpic = globalData.twitterpic;
      
     if(e.target.className.search('twitter') > -1){
     	platform = 'twitter';
         shareWindow = 
             twitterBaseUrl + 
-            encodeURIComponent(message) + 
+            encodeURIComponent(message + " " + twitterpic) + 
             "&url=" + 
             encodeURIComponent(shareUrl)   
     }else if(e.target.className.search('facebook') > -1){
