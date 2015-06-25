@@ -72,8 +72,7 @@ function updateView(data) {
 
 	initSwipers(hSwipers, 'horizontal');
 	initSwipers(vSwipers, 'vertical');
-
-	slides = el.getElementsByClassName('swiper-slide-pending');
+	slides = el.querySelectorAll('.swiper-slide-title, .swiper-slide-active');
 
 	lazyload();
 	initShare();
@@ -81,14 +80,19 @@ function updateView(data) {
 }
 
 function lazyload(){
+	
+	console.log(slides)
 	for( var s = 0; s < slides.length ; s ++){
-		if ( slides[s].className.search('swiper-slide-active') > -1 || slides[s].className.search('swiper-slide-prev') > -1 || slides[s].className.search('swiper-slide-next') > -1  ){
+		console.log(slides[s], slides[s].className.search('active'))
+		if ( slides[s].className.search('active') > -1 || slides[s].className.search('prev') > -1 || slides[s].className.search('next') > -1  ){
+			
 			addBgImg(slides[s]);
-			slides[s]
+			
 		}	
 	}
-
 	slides = el.getElementsByClassName('swiper-slide-pending');
+	
+
 }
 
 function addBgImg(div){

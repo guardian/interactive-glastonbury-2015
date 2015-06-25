@@ -383,13 +383,13 @@ body {
 }
 
 .shareButtonContainer{
-    text-align: left;
+    text-align: center;
     p{
         margin:0;
         font-family:"Guardian Text Sans Web", Arial;
         font-size:18px;
         font-weight:bold;
-        text-align: left;
+        text-align: center;
     }
     button{
         height:42px;
@@ -617,6 +617,10 @@ body {
     }
     .shareButtonContainer{
         padding-top:50px;
+        text-align: left;
+        p {
+        text-align: left;
+        }
     }
 }
 
