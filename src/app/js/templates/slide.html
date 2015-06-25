@@ -1,8 +1,15 @@
 <div 
 	class="swiper-slide swiper-slide-{{slide}} {{#src}}swiper-slide-pending{{/src}}" 
-	{{#backgroundcolor}}style="background-color:{{backgroundcolor}}"{{/backgroundcolor}} 
+	{{#isDesktop}}
+		{{#backgroundcolor}}style="background-color:{{backgroundcolor}}"{{/backgroundcolor}}
+		{{#style}} style='{{style}}' {{/style}}
+	{{/isDesktop}} 
+
+	{{^isDesktop}}
+		{{#style}} style='{{alt.style}}' {{/style}}
+	{{/isDesktop}} 
 	{{#getPhotoData}}data-img-src='{{src}}' data-img-sizes='{{sizes}}'{{/getPhotoData}}	
-	{{#style}} style='{{style}}' {{/style}}
+	
 >
 	<div class="slide-container slide-{{slide}}">
 		{{#isQuote}}
@@ -13,7 +20,7 @@
 		{{/isQuote}}
 		{{#isPhoto}}
 			<div class="picture-credit">
-				<div class="credit-container">
+				<div class="credit-container {{^isDesktop}} {{#alt.hide_gradient}}mobile-hide-gradient{{/alt.hide_gradient}}{{/isDesktop}}">
 					<p {{#textshadow}}style="text-shadow:0 0 4px rgba(0,0,0,{{textshadow}})"{{/textshadow}}>{{caption}}</p>
 				</div>
 			</div>
@@ -24,7 +31,7 @@
 
 			<div class='slide-end-block' {{#end_style}} style='{{end_style}}' {{/end_style}}>
 
-				<div class='slide-end-text'>This way</div>
+				<div class='slide-end-text'>Next chapter</div>
 
 				<svg class='slide-down-arrow' x="0px" y="0px" width="50px" height="50px" viewBox="0 0 50 50" enable-background="new 0 0 50 50" xml:space="preserve">
 					<polygon fill="#FFFFFF" points="44.9,13.2 25,29.9 5.1,13.2 3.1,15.1 21.1,33.1 21.1,33.1 24,36 26,36 28.9,33.1 46.9,15.1 "/>
