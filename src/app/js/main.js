@@ -72,7 +72,7 @@ function updateView(data) {
 
 	initSwipers(hSwipers, 'horizontal');
 	initSwipers(vSwipers, 'vertical');
-	slides = el.querySelectorAll('.swiper-slide-title, .swiper-slide-active');
+	slides = el.querySelectorAll('.swiper-slide-title, .swiper-slide-photo');
 
 	lazyload();
 	initShare();
@@ -96,6 +96,7 @@ function lazyload(){
 }
 
 function addBgImg(div){
+
 	div.className = div.className.replace('swiper-slide-pending', '');
 	var sizes = div.getAttribute('data-img-sizes').split(',');
 	var w = div.offsetWidth;
