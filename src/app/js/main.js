@@ -205,11 +205,22 @@ function boot(div) {
 
 	el = div;
 	windowSize = measure();
+	//	var key = '1o-i8CBAkcbm1t-qNKECzh6VKhlhqygPh2dBhSf-ygLQ';
+
+	var params = parseUrl(el);
+    if(params.key){
+   
+        var folder = (window.location.hostname.search('localhost') > -1  || window.location.hostname.search('interactive.guim.co.uk') > -1) ? 'docsdata-test' : 'docsdata';
+		var url = '//visuals.guim.co.uk/'+folder+'/'+params.key+'.json';
+		getJSON(url, updateView);
+    } else {
+        console.log('Please enter a key in the alt text of the embed or as a param on the url in the format "key="" ')
+    }
+
 	
-	var key = '1o-i8CBAkcbm1t-qNKECzh6VKhlhqygPh2dBhSf-ygLQ';
-	var folder = (window.location.hostname.search('localhost') > -1 ) ? 'docsdata-test' : 'docsdata';
-	var url = '//visuals.guim.co.uk/'+folder+'/'+key+'.json';
-	getJSON(url, updateView);
+
+
+	
 }
 
 function measure(){
@@ -219,6 +230,32 @@ function measure(){
 	};
 
 
+}
+
+function parseUrl(el){
+    
+    var urlParams; 
+
+    //sample ?key=1H2Tqs-0nZTqxg3_i7Xd5-VHd2JMIRr9xOKe72KK6sj4
+
+    if(el.getAttribute('data-alt')){
+        //pull params from alt tag of bootjs
+        urlParams = el.getAttribute('data-alt').split('&');
+
+    } else if(urlParams == undefined){
+        //if doesn't exist, pull from url param
+        urlParams = window.location.search.substring(1).split('&');
+        liveLoad = true;
+    }
+
+
+    var params = {};
+    urlParams.forEach(function(param){
+        var pair = param.split('=');
+        params[ pair[0] ] = pair[1];
+    })
+    
+    return params;
 }
 
 // AMD define for boot.js
