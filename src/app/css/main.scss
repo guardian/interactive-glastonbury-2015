@@ -101,7 +101,7 @@ body {
 
 .slide-mobile-opener {
     width: 100%;
-    min-height: 100vh;
+ 
     background-repeat: no-repeat;
     background-size: auto 50%;
     background-position: top center;
@@ -664,5 +664,9 @@ body {
 
 .article__header {
     display: none;
+}
+
+.article--standard .article__body{
+    padding: 0;
 }
 

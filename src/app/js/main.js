@@ -85,6 +85,7 @@ function lazyload(){
 	for( var s = 0; s < slides.length ; s ++){
 		if ( slides[s].className.search('swiper-slide-active') > -1 || slides[s].className.search('swiper-slide-prev') > -1 || slides[s].className.search('swiper-slide-next') > -1  ){
 			addBgImg(slides[s]);
+			slides[s]
 		}	
 	}
 
@@ -92,7 +93,7 @@ function lazyload(){
 }
 
 function addBgImg(div){
-	div.className.replace('swiper-slide-pending', '');
+	div.className = div.className.replace('swiper-slide-pending', '');
 	var sizes = div.getAttribute('data-img-sizes').split(',');
 	var w = div.offsetWidth;
 	

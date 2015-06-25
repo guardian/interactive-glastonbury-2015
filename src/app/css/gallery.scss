@@ -337,7 +337,7 @@
 }
 .swiper-container-cube .swiper-slide {
   pointer-events: none;
-
+  visibility: hidden;
   -webkit-transform-origin: 0 0;
   -moz-transform-origin: 0 0;
   -ms-transform-origin: 0 0;
