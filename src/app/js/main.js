@@ -121,7 +121,7 @@ function initSwipers(elems, direction){
 	for(var i = 0; i < elems.length; i++) {
 
 		var gallery = new Swiper(elems[i], {
-	        pagination: 		(windowSize.windowWidth > 640 && direction === 'horizontal') ? '' : elems[i].getElementsByClassName('swiper-pagination-' + direction.charAt(0) )[0],
+	        pagination: 		(windowSize.windowWidth > 740 && direction === 'horizontal') ? '' : elems[i].getElementsByClassName('swiper-pagination-' + direction.charAt(0) )[0],
 	        paginationClickable: true,
 	        spaceBetween: 0,
 	        direction: direction,
@@ -137,7 +137,7 @@ function initSwipers(elems, direction){
 	        	}
 	        	return '';
 	        }(),
-	        prevButton: (windowSize.windowWidth > 740 && direction === 'horizontal') ?  elems[i].getElementsByClassName('swiper-button-prev'): '',
+	        prevButton: (windowSize.windowWidth < 740 && direction === 'horizontal') ?  elems[i].getElementsByClassName('swiper-button-prev'): '',
 	        keyboardControl: true,
 	 		
 			mousewheelControl: (direction === 'vertical') ? true : false,
