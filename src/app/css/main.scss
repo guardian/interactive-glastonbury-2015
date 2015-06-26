@@ -695,7 +695,7 @@ figure.element.element-interactive.interactive{
         position: relative;
         right:auto;
         top:auto;
-        margin-top:20px;
+        margin-top:10px;
     }
     .gv-gallery .navigation-container{
         position: absolute;
@@ -718,6 +718,18 @@ figure.element.element-interactive.interactive{
 }
 
 @media(min-width:1140px){
+    .mainShare.shareButtonContainer{
+        margin-top: 0;
+        border-left: 1px solid #dcdcdc;
+        padding-left: 10px;
+        position: absolute;
+        right:20px;
+        top:42px;
+    }
+    .gv-gallery .navigation-container{
+        margin-left:0;
+        right:140px;
+    }
     .swiper-headline{
         width:480px;
         h2{
