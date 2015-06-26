@@ -144,6 +144,12 @@ body {
     }
 }
 
+@media screen and (max-height: 500px){
+    .story-list {
+    display: none;
+    }
+}
+
 .mobile-title-bg {
     background-color: rgba(0, 0, 0, 0.6);
     margin: 0 -10px;
@@ -716,4 +722,6 @@ body {
 .article--standard .article__body{
     padding: 0;
 }
+
+
 
