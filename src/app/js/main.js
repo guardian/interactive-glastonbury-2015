@@ -205,7 +205,7 @@ function shareStory(e){
     var shareUrl = globalData.url;
     var message = globalData.sharetext;
     var shareImage = globalData.shareimage;
-    var twitterpic = globalData.twitterpic;
+    var twitterpic = globalData.twitterpic !== undefined ? globalData.twitterpic : "";
      
     if(e.target.className.search('twitter') > -1){
     	platform = 'twitter';
