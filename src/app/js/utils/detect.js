@@ -77,7 +77,7 @@ function isTwitterApp() {
 }
 
 function isTwitterReferral() {
-    return /\.t\.co/.test(document.referrer);
+    return (document.referrer.search('t.co')> -1) ? true : false;
 }
 
 function isFacebookReferral() {
