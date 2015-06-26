@@ -201,15 +201,30 @@ figure.element.element-interactive.interactive{
 
 
 .scheme-green {
-    background-color: #298422;
+    background-color: #800c0c;
     color: #fff;
 
     .slide-title-container {
         .title-story-headline:nth-child(odd){
-            color: #9ad596;
+            color: #b51800;
         }
         .title-story-headline:nth-child(even){
-            color: #174913;
+            color: #ff5b3a;
+        }
+    }
+
+}
+
+.scheme-red {
+    background-color: #b51800;
+    color: #fff;
+
+    .slide-title-container {
+        .title-story-headline:nth-child(even){
+            color: #800c0c;
+        }
+        .title-story-headline:nth-child(odd){
+            color: #ff5b3a;
         }
     }
 
