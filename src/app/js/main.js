@@ -9,6 +9,7 @@ var storyData;
 var windowSize;
 var slides;
 var globalData;
+var verticalSliders = [];
 /**
  * Update app using fetched JSON data
  * @param {object:json} data - JSON spreedsheet data.
@@ -71,8 +72,9 @@ function updateView(data) {
 	var vSwipers = el.getElementsByClassName('swiper-container-v')
 	var hSwipers = el.getElementsByClassName('swiper-container-h')
 
+
 	initSwipers(hSwipers, 'horizontal');
-	initSwipers(vSwipers, 'vertical');
+	verticalSliders = initSwipers(vSwipers, 'vertical');
 	slides = el.querySelectorAll('.swiper-slide-title, .swiper-slide-photo, .slide-mobile-opener');
 
 	lazyload();
@@ -122,6 +124,7 @@ function addBgImg(div){
 }
 
 function initSwipers(elems, direction){
+	var swiperCollection = [];
 	for(var i = 0; i < elems.length; i++) {
 
 		var gallery = new Swiper(elems[i], {
@@ -148,7 +151,10 @@ function initSwipers(elems, direction){
 			mousewheelReleaseOnEdges: true,
 			freeModeMomentumBounce: false
 
+			
+
 	    });
+		swiperCollection.push(gallery);
 
 	    gallery.on('slideChangeStart', function () {
 		    lazyload();
@@ -160,7 +166,15 @@ function initSwipers(elems, direction){
 				currentActive.className = currentActive.className.replace(" active","");
 				var newActive = document.querySelectorAll('.swiper-navigation-item')[gallery.activeIndex]
 				newActive.className = newActive.className + " active";
+
+					verticalSliders.forEach(function(s){
+						if(s.activeIndex != 0){
+							s.slideTo(0, 0);
+						}
+						
+					})
 			})
+
 
 			var btns = document.querySelectorAll('.swiper-navigation-item');
 			for(var i=0;i<btns.length;i++){
@@ -172,6 +186,7 @@ function initSwipers(elems, direction){
 		    }
 		}
 	}
+	return swiperCollection;
 
 }
 
@@ -191,9 +206,9 @@ function initShare(){
 	}
 
 	if(detect.isFacebookReferral() ){
-		document.getElementById('gv-share-facebook').style.display = 'block';
+		document.getElementById('gv-share-fbk').style.display = 'block';
 	} else if(detect.isTwitterReferral() ){
-		document.getElementById('gv-share-twitter').style.display = 'block';
+		document.getElementById('gv-share-twt').style.display = 'block';
 	}
 }
 
