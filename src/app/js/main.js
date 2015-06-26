@@ -206,9 +206,9 @@ function initShare(){
 	}
 
 	if(detect.isFacebookReferral() ){
-		document.getElementById('gv-share-facebook').style.display = 'block';
+		document.getElementById('gv-share-fbk').style.display = 'block';
 	} else if(detect.isTwitterReferral() ){
-		document.getElementById('gv-share-twitter').style.display = 'block';
+		document.getElementById('gv-share-twt').style.display = 'block';
 	}
 }
 
