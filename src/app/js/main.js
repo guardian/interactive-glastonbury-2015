@@ -72,7 +72,7 @@ function updateView(data) {
 
 	initSwipers(hSwipers, 'horizontal');
 	initSwipers(vSwipers, 'vertical');
-	slides = el.querySelectorAll('.swiper-slide-title, .swiper-slide-photo');
+	slides = el.querySelectorAll('.swiper-slide-title, .swiper-slide-photo, .slide-mobile-opener');
 
 	lazyload();
 	initShare();
@@ -82,7 +82,7 @@ function updateView(data) {
 function lazyload(){
 	
 	for( var s = 0; s < slides.length ; s ++){
-		console.log(slides[s], slides[s].className.search('active'))
+		
 		if ( slides[s].className.search('active') > -1 || slides[s].className.search('prev') > -1 || slides[s].className.search('next') > -1  ){
 			
 			addBgImg(slides[s]);

@@ -51,7 +51,7 @@
 		{{/end}}
 
 		{{#isTitle}}
-			<div class="title-container hp-{{horizontalposition}} vp-{{verticalposition}} size-{{size}}">
+			<div class="title-container hp-{{horizontalposition}} vp-{{verticalposition}} {{^isDesktop}}{{#alt.verticalposition}} vp-{{alt.verticalposition}} {{/alt.verticalposition}} {{#mobiletextbg}} mobile-title-bg {{/mobiletextbg}}{{/isDesktop}}  size-{{size}}">
 				<h2 class="story-title" style="color:{{color}}; {{#textshadow}}text-shadow: 0 0 8px rgba(0,0,0,{{textshadow}});{{/textshadow}} {{customstyle}}">{{headline}}</h2>
 				<h3>{{caption}} {{credit}}</h3>
 			</div>

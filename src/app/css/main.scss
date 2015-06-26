@@ -142,6 +142,12 @@ body {
     }
 }
 
+.mobile-title-bg {
+    background-color: rgba(0, 0, 0, 0.6);
+    margin: 0 -10px;
+    padding: 10px;
+}
+
 .scheme-blue {
     background-color: #005689;
             color: #fff;
@@ -295,12 +301,17 @@ body {
     left:10px;
 }
 
+.vp-top {
+    top: 0;
+}
+
 .vp-middle{
     top:50%;
     transform:translateY(-50%);
 }
 .vp-bottom{
     bottom:0;
+    top: auto;
 }
 
 @media(min-width:400px){
@@ -442,6 +453,9 @@ body {
     }
     .hp-right{
         right:0;
+    }
+    .vp-top {
+        top:20px;
     }
     
     
