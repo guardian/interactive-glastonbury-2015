@@ -19,6 +19,7 @@ function render(data){
 }
 
 function updateView(data) {
+
 	globalData = data.config;
 	var storyData = data.stories.map(function(story,i){
 		story.isFirst = i === 0 ? true : false
