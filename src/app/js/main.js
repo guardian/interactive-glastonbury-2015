@@ -81,7 +81,6 @@ function updateView(data) {
 
 function lazyload(){
 	
-	console.log(slides)
 	for( var s = 0; s < slides.length ; s ++){
 		console.log(slides[s], slides[s].className.search('active'))
 		if ( slides[s].className.search('active') > -1 || slides[s].className.search('prev') > -1 || slides[s].className.search('next') > -1  ){
@@ -102,7 +101,10 @@ function addBgImg(div){
 	var w = div.offsetWidth;
 	
 	for(var i = 0; i < sizes.length; i ++){
-		if( Number(sizes[i]) * .6 > w ){
+		if( Number(sizes[i]) * .6 > w && windowSize.windowWidth <= 740){
+			size = sizes[i];
+			break;
+		} else if( Number(sizes[i])  > w && windowSize.windowWidth > 740){
 			size = sizes[i];
 			break;
 		}
