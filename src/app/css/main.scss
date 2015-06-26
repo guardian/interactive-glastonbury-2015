@@ -399,6 +399,7 @@ body {
 }
 #swiper-navigation{
     display: none;
+    position: relative;
 }
 
 .shareButtonContainer{
@@ -466,11 +467,9 @@ body {
         top:20px;
     }
     
-    
     .slide-down-arrow {
         display: none;
     }
-
 
     .slide-title{
         .story-title{
@@ -502,7 +501,7 @@ body {
         font-size:16px;
         font-family:'Guardian Egyptian Web', Georgia;
         width: 420px;
-        float:left;
+        // float:left;
         padding-top:8px;
         h2{
             font-size:24px;
@@ -514,13 +513,17 @@ body {
             font-size:16px;
             margin:0;
             color:#767676;
+            line-height:1.2em;
+            margin-top:10px;
         }
     }
     .navigation-container{
         background: #fff;
         width:auto;
-        float:left;
-        margin-left:20px;
+        // float:left;
+        // margin-left:20px;
+        margin-left:-5px;
+        margin-top:20px;
         &:after{
             content:'';
             clear:both;
@@ -546,13 +549,16 @@ body {
         }
         p{
             vertical-align: top;
-            margin:20px 0 0 0;
+            margin:0;
             color:#fff;
             transition:color 1s;
             display:inline-block;
             font-weight:bold;
             font-family:'Guardian Text Sans Web', Arial;
             font-size:14px;
+            line-height:1.2em;
+            height:100%;
+            vertical-align: middle;
         }
         &.active{
             -webkit-animation: slideNav 1s; 
@@ -561,10 +567,25 @@ body {
                 padding-right:10px;
                 padding-left:5px;
                 color:#333;
+                max-width:140px;
             }
             button{
                 border-color:#4BC6DF;
                 transition:border-color 1s;
+            }
+        }
+    }
+    .mainShare{
+        position: absolute;
+        right:20px;
+        top:28px;
+        
+        &.shareButtonContainer{
+            padding-top:0;
+            button{
+                width:34px;
+                height:34px;
+                margin-right:5px;
             }
         }
     }
@@ -660,6 +681,19 @@ body {
             }
         }
     }
+    .mainShare{
+        position: relative;
+        right:auto;
+        top:auto;
+        margin-top:20px;
+    }
+    .navigation-container{
+        position: absolute;
+        right:20px;
+        top:28px;
+        margin:0;
+        margin-left:40px;
+    }
     $i: 8;
     @while $i > 0 {
         .size-#{$i}{
@@ -674,6 +708,15 @@ body {
 }
 
 @media(min-width:1140px){
+    .swiper-headline{
+        width:480px;
+        h2{
+            font-size:28px;
+        }
+        h3{
+            font-size:18px;
+        }
+    }
     $i: 8;
     @while $i > 0 {
         .size-#{$i} {
