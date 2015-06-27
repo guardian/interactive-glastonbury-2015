@@ -116,11 +116,13 @@ figure.element.element-interactive.interactive{
         right: 10px;
     }
 
+    position: relative;
 
     .slide-title-container {
-        padding: 53vh 20px 0 20px;;
-        height: 100%;
-
+        padding: 20px 20px 0 20px;;
+        height: auto;
+        top: 50%;
+        position: absolute;
 
         .story-title {
             margin: 0;
