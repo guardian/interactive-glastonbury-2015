@@ -201,6 +201,20 @@ figure.element.element-interactive.interactive{
 
 }
 
+.scheme-orange {
+    background-color: #ff9b0b;
+    color: #fff;
+    .slide-title-container {
+        .title-story-headline:nth-child(even){
+            color: #c05303;
+        }
+        .title-story-headline:nth-child(odd){
+            color: #e6711b;
+        }
+    }
+
+}
+
 
 .scheme-green {
     background-color: #800c0c;
